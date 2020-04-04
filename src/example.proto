@@ -3,6 +3,7 @@ syntax = "proto3";
 service Example {
     rpc responeWithHello (HelloRequest) returns (HelloReponse) {}
     rpc responeWithHelloStream (HelloStreamRequest) returns (stream HelloReponse) {}
+    rpc responseWithCopies (CopiesRequest) returns (CopiesResponse){}
 }
 
 message HelloRequest{
