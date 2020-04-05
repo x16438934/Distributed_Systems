@@ -1,21 +1,21 @@
 syntax = "proto3";
 
 service Example {
-    rpc responeWithHello (HelloRequest) returns (HelloReponse) {}
-    rpc responeWithHelloStream (HelloStreamRequest) returns (stream HelloReponse) {}
+    rpc responeWithLight (LightRequest) returns (LightReponse) {}
+    rpc responeWithLightStream (LightStreamRequest) returns (stream LightReponse) {}
     rpc responseWithCopies (CopiesRequest) returns (CopiesResponse){}
 }
 
-message HelloRequest{
+message LightRequest{
     string name = 1;
 }
 
-message HelloStreamRequest{
+message LightStreamRequest{
     string name = 1;
     string num_response = 2;
 }
 
 //define message
-message HelloReponse {
+message LightReponse {
     string message = 1;
 }

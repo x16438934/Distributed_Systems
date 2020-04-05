@@ -7,15 +7,15 @@ var packageDefinition = protoLoader.loadSync(PROTO_PATH, { keepCase: true, longs
 
 var example_proto = grpc.loadPackageDefinition(packageDefinition);
 
-function responeWithHello(call, callback){
-    callback(null, {message: `Hello ${call.request.name}`});
+function responeWithLight(call, callback){
+    callback(null, {message: `The colour is ${call.request.name}`});
 }
 
-function responeWithHelloStream(call){
+function responeWithLightStream(call){
     var num_request  = call.request.num_response;
 
     for(var i=0; i<num_request; i++){
-        call.write({message: `Hello ${call.request.name} ${i}`})
+        call.write({message: `The colour is ${call.request.name} ${i}`})
     }
 
     call.end();
@@ -25,8 +25,8 @@ function responeWithHelloStream(call){
 function startServer(){
     var server = new grpc.Server();
     server.addService(example_proto.Example.service, {
-        responeWithHello: responeWithHello,
-        responeWithHelloStream: responeWithHelloStream
+        responeWithLight: responeWithLight,
+        responeWithLightStream: responeWithLightStream
     });
 
     server.bind('0.0.0.0:8001', grpc.ServerCredentials.createInsecure());
