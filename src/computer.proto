@@ -14,7 +14,7 @@ message LoginRequest{
 	string password = 2;
 }
 
-message APIRespose{
+message APIResponse{
 	string responsemessage = 1;
 	int32 responsecode = 2;
 }

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service Calender {
+    rpc responeWithDate (DateRequest) returns (DateResponse) {}
+    rpc responeWithTime (TimeRequest) returns (TimeResponse) {}
+}
+
+message DateRequest{
+    string name = 1;
+}
+
+message TimeRequest{
+    string name = 1;
+
+}
+
+//define message
+message DateResponse {
+    string message = 1;
+}
+message TimeResponse {
+    string message = 1;
+}

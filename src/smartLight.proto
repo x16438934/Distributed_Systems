@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-service Example {
-    rpc responeWithLight (LightRequest) returns (LightReponse) {}
-    rpc responeWithLightStream (LightStreamRequest) returns (stream LightReponse) {}
+service Light {
+    rpc responseWithLight (LightRequest) returns (LightResponse) {}
+    rpc responseWithLightStream (LightStreamRequest) returns (stream LightResponse) {}
     rpc responseWithCopies (CopiesRequest) returns (CopiesResponse){}
 }
 
@@ -16,6 +16,6 @@ message LightStreamRequest{
 }
 
 //define message
-message LightReponse {
+message LightResponse {
     string message = 1;
 }
